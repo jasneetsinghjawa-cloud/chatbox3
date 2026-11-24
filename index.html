@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lockdown Line</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="scene" aria-hidden="true">
+  <svg class="scene-svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="floorG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1410"/><stop offset="1" stop-color="#080706"/></linearGradient>
+      <radialGradient id="redGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ff5a36" stop-opacity="0.75"/><stop offset="1" stop-color="#ff5a36" stop-opacity="0"/></radialGradient>
+      <radialGradient id="cone" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#cfe8dc" stop-opacity="0.32"/><stop offset="1" stop-color="#cfe8dc" stop-opacity="0"/></radialGradient>
+      <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a1a16"/><stop offset="1" stop-color="#e5702f"/></linearGradient>
+      <clipPath id="floorClip"><polygon points="0,800 420,470 780,470 1200,800"/></clipPath>
+      <symbol id="zomb" viewBox="0 0 80 120">
+        <circle cx="35" cy="15" r="9" fill="#ff5a36" opacity="0.14"/>
+        <ellipse cx="32" cy="16" rx="9" ry="11" transform="rotate(-12 32 16)" fill="#040606"/>
+        <path d="M20 29 Q32 23 44 31 L48 64 Q40 72 24 70 L17 42 Z" fill="#040606"/>
+        <path d="M42 33 L77 41 L77 48 L42 46 Z" fill="#040606"/>
+        <path d="M40 41 L72 58 L70 64 L38 51 Z" fill="#040606"/>
+        <path d="M22 68 L31 68 L35 118 L24 118 Z" fill="#040606"/>
+        <path d="M32 68 L42 68 L50 118 L38 118 Z" fill="#040606"/>
+        <circle cx="35" cy="14" r="1.7" fill="#ff6a4a"/>
+        <circle cx="29" cy="15" r="1.7" fill="#ff6a4a"/>
+      </symbol>
+    </defs>
+    <rect width="1200" height="800" fill="#070909"/>
+    <polygon points="0,0 1200,0 780,210 420,210" fill="#0b0f0e"/>
+    <polygon points="0,800 420,470 780,470 1200,800" fill="url(#floorG)"/>
+    <polygon points="0,0 420,210 420,470 0,800" fill="#101714"/>
+    <polygon points="1200,0 780,210 780,470 1200,800" fill="#0e1513"/>
+    <rect x="420" y="210" width="360" height="260" fill="#141b19"/>
+    <g id="floorlines" clip-path="url(#floorClip)"></g>
+    <g id="lockers"></g>
+
+    <!-- far wall: classroom door, notice board -->
+    <rect x="540" y="290" width="120" height="180" fill="#222c29" stroke="#0a0e0d" stroke-width="2"/>
+    <rect x="565" y="312" width="70" height="56" fill="url(#skyG)"/>
+    <line x1="600" y1="312" x2="600" y2="368" stroke="#0a0e0d" stroke-width="3"/>
+    <line x1="565" y1="340" x2="635" y2="340" stroke="#0a0e0d" stroke-width="3"/>
+    <rect x="556" y="266" width="88" height="18" fill="#0c100f" stroke="#38463f" stroke-width="1"/>
+    <text x="600" y="279" font-size="11" fill="#cfd8d2" text-anchor="middle" font-family="sans-serif">कक्षा</text>
+    <rect x="444" y="300" width="80" height="72" fill="#3a2a1c" stroke="#1a120b" stroke-width="2"/>
+    <rect x="450" y="306" width="34" height="28" fill="#e8e2cf"/>
+    <text x="467" y="317" font-size="6.5" fill="#222" text-anchor="middle" font-family="monospace">UNIT TEST</text>
+    <text x="467" y="327" font-size="6.5" fill="#a63d2f" text-anchor="middle" font-family="monospace">FRI!</text>
+    <rect x="488" y="310" width="30" height="22" fill="#d9d2b8"/>
+    <text x="503" y="319" font-size="5.5" fill="#222" text-anchor="middle" font-family="monospace">LOST:</text>
+    <text x="503" y="327" font-size="5.5" fill="#222" text-anchor="middle" font-family="monospace">TIFFIN</text>
+    <rect x="452" y="340" width="26" height="24" fill="#cdd6c9"/>
+    <rect x="484" y="340" width="32" height="20" fill="#e8e2cf"/>
+    <ellipse class="pulse" cx="600" cy="385" rx="190" ry="130" fill="url(#redGlow)"/>
+    <ellipse class="pulse" cx="600" cy="530" rx="170" ry="44" fill="url(#redGlow)" opacity="0.5"/>
+
+    <!-- something at the door window -->
+    <g class="zwin" id="zwin">
+      <ellipse cx="600" cy="350" rx="15" ry="19" fill="#040606"/>
+      <path d="M572 368 Q580 352 600 356 Q620 352 628 368 Z" fill="#040606"/>
+      <ellipse cx="578" cy="334" rx="5" ry="7" fill="#040606"/>
+      <circle cx="594" cy="346" r="5" fill="#ff6a4a" opacity="0.25"/>
+      <circle cx="606" cy="346" r="5" fill="#ff6a4a" opacity="0.25"/>
+      <circle cx="594" cy="346" r="1.9" fill="#ff6a4a"/>
+      <circle cx="606" cy="346" r="1.9" fill="#ff6a4a"/>
+    </g>
+    <g fill="#6a1511" opacity="0.8">
+      <g transform="translate(580 336) rotate(-12)"><ellipse rx="6" ry="7"/><ellipse cx="-5" cy="-9" rx="1.7" ry="5"/><ellipse cx="-1.7" cy="-11" rx="1.7" ry="5.5"/><ellipse cx="1.8" cy="-11" rx="1.7" ry="5.5"/><ellipse cx="5.2" cy="-8.5" rx="1.6" ry="4.5"/><ellipse cx="-8" cy="1" rx="1.8" ry="4" transform="rotate(-50 -8 1)"/></g>
+      <g transform="translate(623 328) rotate(14) scale(0.85)"><ellipse rx="6" ry="7"/><ellipse cx="-5" cy="-9" rx="1.7" ry="5"/><ellipse cx="-1.7" cy="-11" rx="1.7" ry="5.5"/><ellipse cx="1.8" cy="-11" rx="1.7" ry="5.5"/><ellipse cx="5.2" cy="-8.5" rx="1.6" ry="4.5"/><ellipse cx="-8" cy="1" rx="1.8" ry="4" transform="rotate(-50 -8 1)"/></g>
+    </g>
+
+    <!-- shambling figures far down the corridor -->
+    <g transform="translate(468,408)"><g class="zfar z1"><use href="#zomb" width="36" height="54"/></g></g>
+    <g transform="translate(676,410)"><g class="zfar z2"><use href="#zomb" width="34" height="51"/></g></g>
+    <g transform="translate(572,418)"><g class="zfar z3"><use href="#zomb" width="28" height="42"/></g></g>
+
+    <!-- claw marks and cracked glass -->
+    <g stroke="#8a978f" stroke-width="1.4" fill="none" opacity="0.45" stroke-linecap="round"><path d="M118 346 L150 410"/><path d="M128 340 L160 404"/><path d="M138 334 L170 398"/></g>
+    <g stroke="rgba(225,240,235,0.22)" stroke-width="1.2" fill="none"><path d="M1040 70 L1000 120 L1010 170 L970 230"/><path d="M1040 70 L1090 118 L1086 176 L1130 240"/><path d="M1040 70 L1070 40 L1100 20"/><path d="M1000 120 L950 108"/><path d="M1086 176 L1140 168"/><path d="M1010 170 L1050 205"/></g>
+    <circle cx="1040" cy="70" r="5" fill="rgba(225,240,235,0.14)"/>
+
+    <!-- tube lights -->
+    <g class="tube f1"><rect x="450" y="26" width="300" height="12" fill="#e7f2ec"/><ellipse cx="600" cy="150" rx="270" ry="130" fill="url(#cone)"/></g>
+    <g class="tube f2"><rect x="520" y="120" width="160" height="9" fill="#e7f2ec"/><ellipse cx="600" cy="215" rx="150" ry="70" fill="url(#cone)"/></g>
+    <rect x="565" y="168" width="70" height="6" fill="#3d4743"/>
+
+    <!-- floor clutter -->
+    <g opacity="0.85">
+      <rect x="230" y="672" width="92" height="72" rx="12" fill="#7a2a26"/>
+      <rect x="241" y="710" width="70" height="26" rx="5" fill="#5f201d"/>
+      <path d="M246 672 Q276 636 306 672" stroke="#4a1815" stroke-width="7" fill="none"/>
+      <g transform="rotate(-12 900 725)"><rect x="868" y="702" width="72" height="50" fill="#e7e2cf"/><rect x="868" y="702" width="14" height="50" fill="#254a8a"/><line x1="890" y1="716" x2="934" y2="716" stroke="#9bb0d4"/><line x1="890" y1="728" x2="934" y2="728" stroke="#9bb0d4"/><line x1="890" y1="740" x2="934" y2="740" stroke="#9bb0d4"/></g>
+      <g transform="rotate(16 520 748)"><rect x="488" y="728" width="66" height="44" fill="#e7e2cf"/><rect x="488" y="728" width="12" height="44" fill="#a63d2f"/><line x1="508" y1="742" x2="548" y2="742" stroke="#9bb0d4"/><line x1="508" y1="754" x2="548" y2="754" stroke="#9bb0d4"/></g>
+      <rect x="1000" y="650" width="54" height="22" rx="3" fill="#aeb8b4"/>
+      <rect x="1002" y="672" width="50" height="22" rx="3" fill="#97a29e"/>
+      <rect x="1004" y="694" width="46" height="22" rx="3" fill="#aeb8b4"/>
+      <path d="M1014 650 Q1027 630 1040 650" stroke="#6f7a76" stroke-width="4" fill="none"/>
+    </g>
+  </svg>
+</div>
+<div class="alarm-wash" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas class="dust" id="dust" aria-hidden="true"></canvas>
+<div class="blackout" id="blackout" aria-hidden="true"></div>
+<div class="fog" aria-hidden="true"></div>
+
+<main class="app">
+  <header class="bar">
+    <div class="brand">
+      <h2>Lockdown Line</h2>
+      <span class="tag">CH 3 · Third floor</span>
+    </div>
+    <div class="ctrls">
+      <label class="vol"><span>Vol</span><input id="vol" type="range" min="0" max="100" value="100" aria-label="Volume"></label>
+      <button class="btn" id="soundBtn" type="button" aria-pressed="true">Sound on</button>
+      <button class="btn" id="replayBtn" type="button">Replay intro</button>
+      <button class="btn" id="resetBtn" type="button">New channel</button>
+    </div>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>EMERGENCY BROADCAST · STAY INSIDE · LOCK ALL DOORS · DO NOT OPEN FOR ANYONE WHO MOANS · SAFE ZONE SIGNAL SEARCHING ·&nbsp;</span><span>EMERGENCY BROADCAST · STAY INSIDE · LOCK ALL DOORS · DO NOT OPEN FOR ANYONE WHO MOANS · SAFE ZONE SIGNAL SEARCHING ·&nbsp;</span></div></div>
+  </header>
+
+  <section class="stage" aria-label="Survivor">
+    <p class="whisper" id="whisper">Keep it quiet. I'm listening.</p>
+    <svg id="kid" class="kid" viewBox="0 0 300 340" role="img" aria-label="A school kid peeking over a barricaded desk, holding a flashlight" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="beamG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff6c8" stop-opacity="0.75"/><stop offset="1" stop-color="#fff6c8" stop-opacity="0"/></linearGradient></defs>
+      <polygon class="beam" points="232,146 420,40 420,250" fill="url(#beamG)"/>
+      <rect x="92" y="198" width="116" height="74" rx="14" fill="#8c2f2a"/>
+      <path d="M80 266 Q80 208 150 204 Q220 208 220 266 Z" fill="#e9e6da"/>
+      <polygon points="144,208 156,208 160,238 150,254 140,238" fill="#1f3a6e"/>
+      <rect x="170" y="222" width="22" height="28" rx="2" fill="#f2b04a"/>
+      <rect x="138" y="190" width="24" height="20" fill="#b9805a"/>
+      <g class="head">
+        <circle cx="112" cy="156" r="7" fill="#c98f66"/>
+        <circle cx="188" cy="156" r="7" fill="#c98f66"/>
+        <circle cx="150" cy="150" r="38" fill="#c98f66"/>
+        <path d="M110 150 Q104 106 150 104 Q196 106 190 150 Q178 128 156 128 Q132 130 110 150 Z" fill="#14100e"/>
+        <circle cx="136" cy="156" r="7" fill="#ffffff"/>
+        <circle cx="164" cy="156" r="7" fill="#ffffff"/>
+        <circle cx="138" cy="157" r="3.2" fill="#14100e"/>
+        <circle cx="166" cy="157" r="3.2" fill="#14100e"/>
+        <path d="M127 144 L144 147" stroke="#14100e" stroke-width="3" stroke-linecap="round"/>
+        <path d="M173 144 L156 147" stroke="#14100e" stroke-width="3" stroke-linecap="round"/>
+        <path class="m-idle" d="M140 178 Q150 181 160 178" stroke="#5a2a1d" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path class="m-happy" d="M138 174 Q150 192 162 174 Z" stroke="#5a2a1d" stroke-width="3" fill="#7a2a22" stroke-linejoin="round"/>
+        <path class="m-puzzled" d="M140 181 Q146 174 152 181 T164 179" stroke="#5a2a1d" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </g>
+      <path d="M196 238 Q216 212 214 180" stroke="#e9e6da" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <rect x="204" y="150" width="22" height="46" rx="5" fill="#2b2f33" transform="rotate(42 215 172)"/>
+      <rect x="219" y="140" width="20" height="10" rx="3" fill="#8b949a" transform="rotate(42 229 145)"/>
+      <circle cx="214" cy="180" r="8" fill="#c98f66"/>
+      <rect x="40" y="236" width="62" height="14" fill="#254a8a"/>
+      <rect x="46" y="224" width="52" height="12" fill="#a63d2f"/>
+      <rect x="224" y="222" width="40" height="30" rx="3" fill="#b6bfbb"/>
+      <line x1="224" y1="232" x2="264" y2="232" stroke="#8b958f" stroke-width="2"/>
+      <line x1="224" y1="242" x2="264" y2="242" stroke="#8b958f" stroke-width="2"/>
+      <rect x="20" y="250" width="260" height="20" rx="3" fill="#6b4a30"/>
+      <rect x="34" y="270" width="232" height="54" fill="#4a3322"/>
+      <line x1="34" y1="274" x2="266" y2="322" stroke="#2f2015" stroke-width="5"/>
+      <rect x="40" y="324" width="9" height="16" fill="#2a1d13"/>
+      <rect x="251" y="324" width="9" height="16" fill="#2a1d13"/>
+    </svg>
+  </section>
+
+  <section class="comms" aria-label="Radio">
+    <div class="signal">
+      <div class="signal-top"><span>Signal to safe zone · <span id="sigLabel">Faint</span></span><b id="sigPct">20%</b></div>
+      <div class="track" role="progressbar" aria-label="Signal to safe zone" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" id="sigTrack"><div class="fill" id="sigFill"></div></div>
+    </div>
+    <div class="log" id="log" role="log" aria-live="polite"></div>
+    <div class="chips" id="chips">
+      <button class="chip" type="button" data-msg="What's the plan?">What's the plan?</button>
+      <button class="chip" type="button" data-msg="We need supplies. Where should we look first?">Find supplies</button>
+      <button class="chip" type="button" data-msg="Tell me a short story to keep us calm.">Tell me a story</button>
+      <button class="chip" type="button" data-msg="Can you help me with my homework?">Help with homework</button>
+      <button class="chip" type="button" data-msg="Hindi mein baat karo please.">Hindi mein bolo</button>
+    </div>
+    <form class="composer" id="composer" autocomplete="off">
+      <textarea id="msg" rows="1" aria-label="Message" placeholder="Hold the key and speak…" maxlength="4000"></textarea>
+      <button class="send" id="sendBtn" type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
+<div class="intro gated" id="intro" role="dialog" aria-label="Lockdown Line intro">
+  <div class="intro-tube" aria-hidden="true"></div>
+  <div class="flash" id="flash" aria-hidden="true"></div>
+  <div class="gate" id="gate">
+    <p class="gate-k">Headphones recommended</p>
+    <h1 class="gate-title">Lockdown Line</h1>
+    <button class="enter" id="gateBtn" type="button">Tap to begin · sound on</button>
+    <p class="gate-note">Deep bass and sudden noises. Use the volume slider at the top any time.</p>
+  </div>
+  <div class="intro-stage" id="introStage" aria-live="polite"></div>
+  <div class="title-card" id="titleCard">
+    <p class="kicker">Third floor</p>
+    <h1 class="title"><span>Lockdown</span><span>Line</span></h1>
+    <p class="sub">Radio check. Anyone out there? Keep your voice down.</p>
+    <button class="enter" id="enterBtn" type="button">Pick up the radio</button>
+  </div>
+  <svg class="introzombs" viewBox="0 0 600 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <g style="animation-delay:-0.4s"><use href="#zomb" x="10" y="39" width="54" height="81"/></g>
+    <g style="animation-delay:-1.3s"><use href="#zomb" x="110" y="24" width="64" height="96"/></g>
+    <g style="animation-delay:-2.1s"><use href="#zomb" x="215" y="48" width="48" height="72"/></g>
+    <g style="animation-delay:-0.9s"><use href="#zomb" x="330" y="30" width="60" height="90"/></g>
+    <g style="animation-delay:-1.8s"><use href="#zomb" x="440" y="42" width="52" height="78"/></g>
+    <g style="animation-delay:-2.6s"><use href="#zomb" x="530" y="24" width="64" height="96"/></g>
+  </svg>
+  <button class="skip" id="skipBtn" type="button">Skip intro</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
